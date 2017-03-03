@@ -71,6 +71,10 @@ class EntityWithSources(EntityWithMetadata, EntityWithSourcesMixin):
         sources = self._h5group.open_group("sources")
         sources.create_link(target, target.id)
 
+    def _add_source_obj(self, target):
+        sources = self._h5group.open_group("sources")
+        sources.create_link(target, target.id)
+
     def _has_source_by_id(self, id_or_name):
         sources = self._h5group.open_group("sources")
         sources.has_by_id(id_or_name)
